@@ -1,0 +1,559 @@
+/* ==========================================
+   1. ЗМІННІ ТА СКИДАННЯ (Variables & Reset)
+   ========================================== */
+:root {
+    --color-primary: #e32636;        /* Фірмовий червоний акцент з мокапа */
+    --color-primary-hover: #c11b29;
+    --color-text: #1a1a1a;
+    --color-muted: #666666;
+    --color-bg: #f4f1ea;             /* Світло-кремовий фон сторінки з мокапа */
+    --color-surface: #eae5d9;        /* Фон для блоків та полів вводу */
+    --color-card-bg: #f4f1ea;
+    --color-border: #e32636;        /* Червоні рамки карткам з мокапа */
+    --color-light-border: #dcd6c8;
+    
+    --radius: 4px;
+    --gap: clamp(16px, 2vw, 28px);
+    --container: 1240px;
+    --font-main: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, p, ul, ol, figure, blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+/* ==========================================
+   2. ТИПОГРАФІКА (Typography)
+   ========================================== */
+body {
+    font-family: var(--font-main);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    color: var(--color-text);
+}
+
+/* ==========================================
+   3. МАКЕТ (Layout)
+   ========================================== */
+.container {
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: var(--gap);
+}
+
+/* Шарпка (Header) */
+.header {
+    background-color: var(--color-bg);
+    border-bottom: 2px solid var(--color-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding-top: 16px;
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 16px;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--color-text);
+}
+
+.header__subtitle {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+.nav__list {
+    display: flex;
+    gap: 24px;
+}
+
+.nav__link {
+    font-weight: 600;
+    padding: 6px 12px;
+    color: var(--color-text);
+    border-radius: var(--radius);
+}
+
+.nav__link:hover {
+    color: var(--color-primary);
+}
+
+.nav__link--active {
+    color: #ffffff;
+    background-color: var(--color-primary);
+}
+
+/* Червона плашка під шапкою з мокапа */
+.header-tagline {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    padding: 6px 24px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-block;
+    clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+    margin-bottom: -2px;
+}
+
+/* Двоколоночна структура для каталогу */
+.catalog-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    margin-top: 24px;
+}
+
+.page-title {
+    margin-block: 24px 8px;
+    font-size: 2.5rem;
+}
+
+/* Підвал (Footer) */
+.footer {
+    border-top: 1px solid var(--color-light-border);
+    padding-block: 24px;
+    margin-top: 64px;
+    background-color: var(--color-bg);
+}
+
+.footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+.footer__slogan {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* ==========================================
+   4. КОМПОНЕНТИ (Components)
+   ========================================== */
+
+/* Кнопки */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn--sm {
+    padding: 6px 14px;
+    font-size: 0.875rem;
+}
+
+/* Герой-секція (Головна) */
+.hero {
+    padding-block: 48px;
+    border-bottom: 1px solid var(--color-light-border);
+}
+
+.hero__title {
+    margin-bottom: 12px;
+}
+
+.hero__text {
+    font-size: 1.15rem;
+    color: var(--color-muted);
+    margin-bottom: 24px;
+}
+
+/* Блок фільтрів (Aside) */
+.filters-sidebar {
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-primary);
+    padding: 20px;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: fit-content;
+}
+
+.filter-group h2, .filter-group h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.search-input, .select-box, input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-light-border);
+    border-radius: var(--radius);
+    color: var(--color-text);
+    outline: none;
+}
+
+.search-input:focus, .select-box:focus, input:focus, textarea:focus {
+    border-color: var(--color-primary);
+}
+
+.filters-sidebar label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+/* Слайдер зарплати */
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--color-primary);
+}
+
+/* Картки вакансій */
+.vacancies-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.results-count {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.vacancy-list, .companies-grid, .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.vacancy-card, .card, .company-card {
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-card-bg);
+    padding: 20px;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    transition: transform 0.15s ease;
+}
+
+.vacancy-card:hover, .card:hover, .company-card:hover {
+    transform: translateY(-2px);
+}
+
+.vacancy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.company-name {
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.vacancy-details {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+.vacancy-salary, .card__price {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--color-text);
+    align-self: flex-end;
+    margin-top: 8px;
+}
+
+/* Форми (Контакти) */
+.contact-section {
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   5. МЕДІАЗАПИТИ (Media Queries)
+   ========================================== */
+@media (max-width: 992px) {
+    .catalog-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters-sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .nav__list {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 0.9rem;
+    }
+
+    .vacancy-header {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .vacancy-salary {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav__list {
+        flex-wrap: wrap;
+    }
+    
+    .footer__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ==========================================
+   КОМПОНЕНТ: Футер (4 колонки + копірайт)
+   ========================================== */
+.footer {
+    border-top: 1px solid var(--color-light-border);
+    margin-top: 64px;
+    background-color: var(--color-bg);
+    padding-top: 48px;
+}
+
+/* 4 колонки посилань за допомогою CSS Grid */
+.footer__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding-bottom: 40px;
+}
+
+.footer__col h3 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text);
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__links a {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+}
+
+.footer__links a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Рядок копірайту (Flexbox) */
+.footer__bottom {
+    border-top: 1px solid var(--color-light-border);
+    padding-block: 20px;
+    background-color: var(--color-surface);
+}
+
+.footer__bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+.footer__slogan {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* Адаптивність футера для планшетів та мобільних */
+@media (max-width: 992px) {
+    .footer__container {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+    }
+}
+
+@media (max-width: 576px) {
+    .footer__container {
+        grid-template-columns: 1fr; /* 1 колонка на мобільних пристроях */
+        gap: 24px;
+    }
+    
+    .footer__bottom-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ==========================================
+   5. МЕДІАЗАПИТИ ТА АДАПТИВНІСТЬ (Media Queries)
+   ========================================== */
+
+/* 1280 px та ширше: обмеження контейнера, 4 колонки карток */
+@media (min-width: 1280px) {
+    .cards, .vacancy-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* До 992 px: фільтр ліворуч, 3 колонки карток */
+@media (max-width: 992px) {
+    .catalog-layout {
+        grid-template-columns: 260px 1fr; /* Фільтр залишається ліворуч на планшетах */
+    }
+    .cards, .vacancy-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* До 768 px: фільтр над переліком товарів, дві колонки карток */
+@media (max-width: 768px) {
+    .catalog-layout {
+        grid-template-columns: 1fr; /* Фільтр стає зверху над контентом */
+    }
+    
+    .cards, .vacancy-list {
+        grid-template-columns: repeat(2, 1fr); /* Дві колонки карток */
+    }
+
+    .header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .nav__list {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+/* До 360 px: одна колонка карток, меню переноситься, горизонтальна прокрутка відсутня */
+@media (max-width: 360px) {
+    body {
+        overflow-x: hidden; /* Запобігає горизонтальній прокрутці */
+    }
+
+    .cards, .vacancy-list {
+        grid-template-columns: 1fr; /* Одна колонка карток */
+    }
+
+    .nav__list {
+        flex-wrap: wrap; /* Меню переноситься на новий рядок */
+        justify-content: center;
+    }
+
+    .header__inner, .container {
+        padding-inline: 12px; /* Зменшені відступи для дуже вузьких екранів */
+    }
+}

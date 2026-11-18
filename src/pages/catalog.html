@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobPortal — Каталог вакансій</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a class="logo" href="../index.html">JOB<span>PORTAL</span></a>
+            <nav class="nav" aria-label="Головне меню">
+                <ul class="nav__list">
+                    <li><a class="nav__link" href="../index.html">Головна</a></li>
+                    <li><a class="nav__link nav__link--active" href="catalog.html">Вакансії</a></li>
+                    <li><a class="nav__link" href="companies.html">Компанії</a></li>
+                    <li><a class="nav__link" href="contact.html">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container catalog-page">
+        <h1 class="page-title">Каталог вакансій</h1>
+        
+        <div class="catalog-layout">
+            <!-- Бічна панель з фільтрами та пошуком -->
+            <aside class="filters-sidebar">
+                <section class="filter-group">
+                    <h2>Пошук роботи</h2>
+                    <input type="text" placeholder="Посада або компанія" class="search-input">
+                </section>
+                <section class="filter-group">
+                    <h3>Фільтри</h3>
+                    <label><input type="checkbox"> Досвід роботи більше 5 років</label>
+                    <label><input type="checkbox"> Дистанційна</label>
+                </section>
+                <section class="filter-group">
+                    <h3>Місто</h3>
+                    <select class="select-box">
+                        <option>Оберіть місто</option>
+                        <option>Київ</option>
+                        <option>Дніпро</option>
+                        <option>Запоріжжя</option>
+                    </select>
+                </section>
+                <section class="filter-group">
+                    <h3>Зарплата від</h3>
+                    <p>15 000 грн</p>
+                    <input type="range" min="5000" max="50000">
+                </section>
+            </aside>
+
+            <!-- Основний контент зі списком вакансій -->
+            <section class="vacancies-content">
+                <p class="results-count">Знайдено 24 вакансії</p>
+                
+                <div class="vacancy-list">
+                    <article class="vacancy-card">
+                        <div class="vacancy-header">
+                            <h3>Прокатчик труб</h3>
+                            <span class="company-name">ІнтерЗавод</span>
+                        </div>
+                        <p class="vacancy-details">📍 Дніпро • Повна зайнятість • Досвід 5+ років</p>
+                        <p class="vacancy-salary">30 000 Грн</p>
+                    </article>
+
+                    <article class="vacancy-card">
+                        <div class="vacancy-header">
+                            <h3>Прокатчик труб</h3>
+                            <span class="company-name">ІнтерЗавод</span>
+                        </div>
+                        <p class="vacancy-details">📍 Київ • Повна зайнятість • Досвід 5+ років</p>
+                        <p class="vacancy-salary">30 000 Грн</p>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p>VACANCY &copy; 2026</p>
+            <p>хто шукає - той знайде</p>
+        </div>
+    </footer>
+</body>
+</html>
